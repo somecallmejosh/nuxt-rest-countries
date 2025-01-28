@@ -9,6 +9,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/fonts',
   ],
+  colorMode: {
+    preference: 'dark',
+    fallback: 'light',
+    storage: 'localStorage',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode',
+  },
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
   },
