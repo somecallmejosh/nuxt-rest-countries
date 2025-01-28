@@ -15,7 +15,11 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        custom: ['Nunito Sans', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
