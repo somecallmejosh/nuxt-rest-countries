@@ -8,14 +8,11 @@
 </script>
 <template>
   <li>
-    <div class="card-img">
-      <NuxtImg
-        provider="flagCdn"
-        :src="props.country.flags.svg"
-        :alt="`${props.country.name} Flag`"
-        layout="fill"
-      />
-    </div>
+    <flag
+      :imageUrl="props.country.flags.svg"
+      :altText="`${props.country.name.common}`"
+      context="card"
+    />
     <div class="card-text">
       <h2 class="font-800 text-lg mb-4">{{ props.country.name.common }}</h2>
       <dl>
@@ -51,17 +48,8 @@ li {
     @apply block absolute inset-0 z-10 rounded-[0.3125rem] overflow-hidden;
   }
 }
-
-.card-img, .card-text {
+.card-text {
   @apply relative z-0;
-}
-
-.card-img {
-  @apply aspect-[16.5/10];
-
-  img {
-    @apply object-cover w-full h-full rounded-t-[0.3125rem];
-  }
 }
 
 .card-text {
