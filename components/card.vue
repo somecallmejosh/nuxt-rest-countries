@@ -10,6 +10,7 @@
   <li>
     <div class="card-img">
       <NuxtImg
+        provider="flagCdn"
         :src="props.country.flags.svg"
         :alt="`${props.country.name} Flag`"
         layout="fill"

@@ -16,6 +16,7 @@
     "@nuxtjs/seo": "2.1.0",
     "@nuxtjs/tailwindcss": "6.13.1",
     "nuxt": "^3.15.3",
+    "ufo": "^1.5.4",
     "vue": "latest",
     "vue-router": "latest"
   }

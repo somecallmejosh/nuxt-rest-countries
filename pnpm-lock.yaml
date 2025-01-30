@@ -26,6 +26,9 @@ importers:
       nuxt:
         specifier: ^3.15.3
         version: 3.15.3(@parcel/watcher@2.5.0)(@types/node@22.10.10)(db0@0.2.1)(ioredis@5.4.2)(magicast@0.3.5)(rollup@4.32.0)(terser@5.37.0)(typescript@5.7.3)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0)
+      ufo:
+        specifier: ^1.5.4
+        version: 1.5.4
       vue:
         specifier: latest
         version: 3.5.13(typescript@5.7.3)
