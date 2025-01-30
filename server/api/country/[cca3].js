@@ -17,10 +17,12 @@ export default defineEventHandler(async (event) => {
   try {
     borderCountries = await $fetch(`${baseUrl}?codes=${endpoint[0].borders.join(',')}&fields=cca3,name`)
   } catch (error) {
-    return {
-      statusCode: error?.response?.status || 500,
-      message: 'Error fetching border countries',
-      status: error?.response?.statusText
+    if (!error) {
+      return {
+        statusCode: 404,
+        message: 'No border countries found',
+        status: 'Not Found'
+      }
     }
   }
 
