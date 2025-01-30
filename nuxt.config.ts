@@ -16,6 +16,17 @@ export default defineNuxtConfig({
     classSuffix: '',
     storageKey: 'nuxt-color-mode',
   },
+  image: {
+    providers: {
+      myProvider: {
+        name: 'flagCdn', // optional value to overrider provider name
+        provider: '~/providers/image-provider.ts', // Path to custom provider
+        options: {
+          baseURL: '',
+        },
+      },
+    },
+  },
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
   },
