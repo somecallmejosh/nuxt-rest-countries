@@ -16,7 +16,7 @@
       />
     </div>
     <div class="card-text">
-      <h2 class="font-800 text-lg mb-4">{{ props.country.name }}</h2>
+      <h2 class="font-800 text-lg mb-4">{{ props.country.name.common }}</h2>
       <dl>
         <div>
           <dt>Population</dt>
@@ -28,7 +28,11 @@
         </div>
         <div>
           <dt>Capital</dt>
-          <dd>{{ props.country.capital }}</dd>
+          <dd>
+            {{ props.country.capital.length > 1
+              ? props.country.capital.join(', ')
+              : props.country.capital[0] }}
+          </dd>
         </div>
       </dl>
     </div>
@@ -39,11 +43,11 @@
 </template>
 <style scoped>
 li {
-  @apply relative bg-white dark:bg-ebony-clay overflow-hidden rounded-[0.3125rem];
+  @apply relative bg-white dark:bg-ebony-clay rounded-[0.3125rem];
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
 
   a {
-    @apply absolute inset-0 z-10;
+    @apply block absolute inset-0 z-10 rounded-[0.3125rem] overflow-hidden;
   }
 }
 
@@ -55,7 +59,7 @@ li {
   @apply aspect-[16.5/10];
 
   img {
-    @apply object-cover w-full h-full;
+    @apply object-cover w-full h-full rounded-t-[0.3125rem];
   }
 }
 
@@ -64,9 +68,17 @@ li {
 }
 
 dl {
-  @apply text-sm flex items-center gap-1;
+  @apply text-sm;
+
+  div {
+    @apply  flex items-center gap-1;
+  }
   dt {
     @apply font-600;
+
+    &:after {
+      content: ':';
+    }
   }
 
   dd {
