@@ -1,17 +1,30 @@
 <script setup>
 const route = useRoute()
+const router = useRouter()
 const { data } = await useFetch('/api/country/' + route.params.cca3)
 
 const getNativeName = (names) => {
   const nativeName = names[route.params.cca3]
   return nativeName ? nativeName.official : Object.values(names)[0].official
 }
+
+const backLink = () => {
+  const back = router.options.history.state.back
+  if (back) {
+    if (back.includes('?region')) {
+      return back
+    }
+    return '/'
+  }
+  return '/'
+}
+
 </script>
 
 <template>
-  <div class="py-12 lg:py-20 lg:space-y-20">
+  <div class="py-12 lg:py-20 space-y-12 lg:space-y-20">
     <div>
-      <NuxtLink to="/" class="inline-flex gap-2">
+      <NuxtLink :to="backLink()" class="inline-flex gap-2">
         <icons-back-arrow />
         <span>Back</span>
       </NuxtLink>

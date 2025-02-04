@@ -11,6 +11,6 @@
 </template>
 <style>
   .wrapper {
-    @apply w-full max-w-[80rem] mx-auto px-4 lg:px-0;
+    @apply w-full max-w-[80rem] mx-auto px-4 xl:px-0;
   }
 </style>

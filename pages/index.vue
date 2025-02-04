@@ -28,7 +28,7 @@ watchEffect(() => {
         <filters-regions />
       </div>
     </section>
-    <ul class="grid lg:grid-cols-4 lg:gap-12 gap-6">
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-12 gap-6">
       <Card v-for="country in data" :key="country.name" :country="country" />
     </ul>
   </div>
