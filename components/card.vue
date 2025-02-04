@@ -1,7 +1,7 @@
 <script setup>
   const props = defineProps({
     country: {
-      type: Object,
+      type: Object || String,
       required: true,
     },
   })

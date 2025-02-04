@@ -23,9 +23,9 @@ watch(() => route.query.region, (newRegion) => {
         <span>{{ region }}</span>
         <icons-chevron-down />
       </button>
-
       <ul
         v-if="regionMenuVisible"
+        @click="hideRegions"
         id="region-filter"
         role="menu"
         tabindex="-1"
