@@ -19,9 +19,6 @@ export default defineEventHandler(async (event) => {
     const data = await $fetch(url)
     return data
   } catch(error) {
-    return {
-      statusCode: error?.response?.status || 500,
-      message: error?.response?.statusText || 'Internal Server Error'
-    }
+    return {}
   }
 })

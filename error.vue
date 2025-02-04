@@ -2,7 +2,10 @@
 import type { NuxtError } from '#app'
 
 const props = defineProps({
-  error: Object as () => NuxtError
+  error: {
+    type: Object as () => NuxtError,
+    default: () => ({ statusCode: 500 })
+  }
 })
 </script>
 <template>
@@ -11,7 +14,7 @@ const props = defineProps({
     <div class="text-wood-smoke bg-alabaster dark:text-white dark:bg-mine-shaft min-h-dvh flex flex-col h-dvh">
       <layout-app-header />
       <main class="wrapper space-y-2 flex-1 flex flex-col items-center justify-center">
-        <div class="bg-white p-4 rounded lg:min-w-96 space-y-6">
+        <div class="bg-white p-4 rounded lg:min-w-96 space-y-6 dark:bg-ebony-clay">
           <h1 class="font-800 text-[3rem]">{{ error.statusCode }}</h1>
           <div v-if="error.statusCode === 404">
             <p>Sorry, the page you are looking for could not be found.</p>
