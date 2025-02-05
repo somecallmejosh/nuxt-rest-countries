@@ -22,6 +22,7 @@
       :src="props.imageUrl"
       :alt="`${props.altText} Flag`"
       layout="fill"
+      loading="lazy"
     />
   </div>
 </template>

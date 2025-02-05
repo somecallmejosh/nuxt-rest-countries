@@ -28,14 +28,11 @@ const filterResults = useDebounceFn(() => {
   router.push({path: '/', query: { name: name.value } })
 }, 500)
 
-const searchField = ref(null)
 const clearSearch = () => {
   router.push({path: '/'})
   name.value = ''
   document.querySelector('input').focus()
 }
-
-
 </script>
 <template>
   <div class="py-8 lg:py-12 space-y-6 lg:space-y-12">
@@ -47,20 +44,14 @@ const clearSearch = () => {
         </div>
       </div>
       <div>
-        <filters-regions />
+        <client-only>
+          <filters-regions />
+        </client-only>
       </div>
     </section>
     <ul v-if="data.length > 0" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-12 gap-6">
       <Card v-for="country in data" :key="country.name" :country="country" />
     </ul>
-    <div class="flex flex-col gap-2 lg:flex-row lg:items-center" role="alert" aria-live="assertive" v-else>
-      <icons-oops class="size-28 lg:size-40 shrink-0"/>
-      <div>
-        <h1 class="font-800 text-3xl">Uhhh... Say What?</h1>
-        <p>Is like... <strong class="bg-black/10 p-1 italic dark:bg-white/10">{{ name }}</strong> actually a country and stuff?</p>
-        <p class="mb-2">Maybe give your search another go.</p>
-        <button @click="clearSearch" class="bg-black/10 font-600 dark:bg-black dark:border-ebony-clay rounded-[0.3125rem] px-2 py-1 box-shadow">Clear Search</button>
-      </div>
-    </div>
+    <no-results :name="name" :clearSearch="clearSearch" v-else />
   </div>
 </template>
