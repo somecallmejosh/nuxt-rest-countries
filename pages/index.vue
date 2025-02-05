@@ -33,6 +33,14 @@ const clearSearch = () => {
   name.value = ''
   document.querySelector('input').focus()
 }
+
+useSeoMeta({
+  title: 'Where in the world?',
+  description: 'List of countries throughout the world',
+  ogDescription: 'List of countries throughout the world',
+  ogImage: 'https://flagcdn.com/w320/us.png',
+  twitterCard: 'summary_large_image',
+})
 </script>
 <template>
   <div class="py-8 lg:py-12 space-y-6 lg:space-y-12">

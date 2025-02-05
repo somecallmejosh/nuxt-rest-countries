@@ -1,7 +1,7 @@
 <script setup>
 const route = useRoute()
 const router = useRouter()
-const { data } = await useFetch('/api/country/' + route.params.cca3)
+const { data: country } = await useFetch('/api/country/' + route.params.cca3)
 
 const getNativeName = (names) => {
   const nativeName = names[route.params.cca3]
@@ -19,6 +19,16 @@ const backLink = () => {
   return '/'
 }
 
+
+useSeoMeta({
+  title: () => country.value?.name?.common,
+  description: () => `Information about ${country.value?.name?.common}`,
+  ogDescription: () => `Information about ${country.value?.name?.common}`,
+  ogImage: () => country.value?.flags?.png,
+  twitterCard: 'summary_large_image',
+})
+
+
 </script>
 
 <template>
@@ -31,34 +41,34 @@ const backLink = () => {
     </div>
     <section class="grid gap-8 lg:grid-cols-2 lg:gap-32 lg:items-center">
       <div>
-        <flag :imageUrl="data.flags.svg" :altText="`${data.name.common}`" context="country" />
+        <flag :imageUrl="country.flags.svg" :altText="`${country.name.common}`" context="country" />
       </div>
       <div>
-        <h1 class="font-800 text-3xl mb-4">{{ data.name.common }}</h1>
+        <h1 class="font-800 text-3xl mb-4">{{ country.name.common }}</h1>
         <div class="grid gap-6 lg:grid-cols-2">
           <dl>
             <div>
               <dt>Native Name</dt>
-              <dd>{{ getNativeName(data.name.nativeName) }}</dd>
+              <dd>{{ getNativeName(country.name.nativeName) }}</dd>
             </div>
             <div>
               <dt>Population</dt>
-              <dd>{{ data.population.toLocaleString() }}</dd>
+              <dd>{{ country.population.toLocaleString() }}</dd>
             </div>
             <div>
               <dt>Region</dt>
-              <dd>{{ data.region }}</dd>
+              <dd>{{ country.region }}</dd>
             </div>
             <div>
               <dt>Sub region</dt>
-              <dd>{{ data.subregion }}</dd>
+              <dd>{{ country.subregion }}</dd>
             </div>
             <div>
               <dt>Capital</dt>
               <dd>
-                {{ data.capital.length > 1
-                  ? data.capital.join(', ')
-                  : data.capital[0] }}
+                {{ country.capital.length > 1
+                  ? country.capital.join(', ')
+                  : country.capital[0] }}
               </dd>
             </div>
           </dl>
@@ -66,29 +76,29 @@ const backLink = () => {
             <div>
               <dt>Top Level Domain</dt>
               <dd>
-              {{ data.tld.length > 1
-                ? data.tld.join(', ')
-                : data.tld[0] }}
+              {{ country.tld.length > 1
+                ? country.tld.join(', ')
+                : country.tld[0] }}
             </dd>
             </div>
             <div>
               <dt>Currencies</dt>
               <dd>
-                {{ Object.values(data.currencies).map(currency => `${currency.name}`).join(', ') }}
+                {{ Object.values(country.currencies).map(currency => `${currency.name}`).join(', ') }}
               </dd>
             </div>
             <div>
               <dt>Languages</dt>
               <dd>
-                {{ Object.values(data.languages).join(', ') }}
+                {{ Object.values(country.languages).join(', ') }}
               </dd>
             </div>
           </dl>
         </div>
-        <div v-if="data.borderCountries.length" class="flex flex-col gap-3 lg:gap-4 lg:flex-row mt-20">
+        <div v-if="country.borderCountries.length" class="flex flex-col gap-3 lg:gap-4 lg:flex-row mt-20">
           <h2 class="font-600 shrink-0">Border Countries:</h2>
           <ul class="flex gap-x-2 gap-y-3 list-none flex-wrap flex-1">
-            <li v-for="border in data.borderCountries" :key="border.cca3">
+            <li v-for="border in country.borderCountries" :key="border.cca3">
               <NuxtLink :to="`/country/${border.cca3}`">
                 {{ border.name.common }}
               </NuxtLink>
