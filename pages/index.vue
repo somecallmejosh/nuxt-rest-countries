@@ -47,7 +47,7 @@ useSeoMeta({
     <section aria-label="Search and filters" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
       <div class="flex-1">
         <div class="box-shadow w-full max-w-[30rem] h-[3rem] pl-[1.5rem] pr-[4rem] bg-white text-sm dark:bg-ebony-clay dark:text-white rounded-[0.3125rem] relative">
-          <input type="text" @keyup="filterResults" v-model="name" placeholder="Search for a country..." class="absolute inset-0 pr-2 pl-10 bg-[rgba(0,0,0,0)]" />
+          <input type="text" @keyup="filterResults" v-model="name" placeholder="Search for a country..." class="absolute inset-0 pr-2 pl-10 bg-[rgba(0,0,0,0)] box-shadow" />
           <icons-search class="absolute size-4 left-3 top-1/2 -translate-y-1/2" />
         </div>
       </div>
@@ -65,3 +65,8 @@ useSeoMeta({
     <no-results :name="name" :clearSearch="clearSearch" v-else />
   </div>
 </template>
+<style scoped>
+.box-shadow {
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+}
+</style>
