@@ -49,9 +49,11 @@ const clearSearch = () => {
         </client-only>
       </div>
     </section>
-    <ul v-if="data.length > 0" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-12 gap-6">
-      <Card v-for="country in data" :key="country.name" :country="country" />
-    </ul>
+    <client-only v-if="data.length > 0" >
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-12 gap-6">
+        <Card v-for="(country, index) in data" :index="index" :key="country.name" :country="country" />
+      </ul>
+    </client-only>
     <no-results :name="name" :clearSearch="clearSearch" v-else />
   </div>
 </template>

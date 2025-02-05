@@ -11,7 +11,11 @@
     context: {
       type: String,
       default: 'card',
-    }
+    },
+    index: {
+      type: Number,
+      default: 0,
+    },
   })
 </script>
 <template>
@@ -22,7 +26,7 @@
       :src="props.imageUrl"
       :alt="`${props.altText} Flag`"
       layout="fill"
-      loading="lazy"
+      :loading=" index > 1 ? 'lazy' : 'eager'"
     />
   </div>
 </template>

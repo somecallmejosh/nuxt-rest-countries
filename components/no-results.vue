@@ -12,7 +12,7 @@ const props = defineProps({
 
 </script>
 <template>
-  <div class="flex flex-col gap-2 lg:flex-row lg:items-center" role="alert" aria-live="assertive">
+  <div class="flex flex-col gap-2 lg:flex-row lg:items-center" role="alert" aria-live="polite">
     <icons-oops class="size-28 lg:size-40 shrink-0"/>
     <div>
       <h1 class="font-800 text-3xl">Uhhh... Say What?</h1>

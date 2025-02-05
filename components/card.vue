@@ -4,6 +4,10 @@
       type: Object || String,
       required: true,
     },
+    index: {
+      type: Number,
+      default: 0,
+    },
   })
 </script>
 <template>
@@ -12,6 +16,7 @@
       :imageUrl="props.country.flags.svg"
       :altText="`${props.country.name.common}`"
       context="card"
+      :index="props.index"
     />
     <div class="card-text">
       <h2 class="font-800 text-lg mb-4">{{ props.country.name.common }}</h2>
