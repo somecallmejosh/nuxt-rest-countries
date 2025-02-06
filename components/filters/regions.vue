@@ -49,7 +49,7 @@ watch(() => route.query.region, (newRegion) => {
 </template>
 <style scoped>
 button {
-  @apply bg-white dark:bg-ebony-clay dark:border-ebony-clay rounded-[0.3125rem] h-[3rem] w-[12.5rem] pl-[1.5rem] pr-[1.19rem] flex items-center justify-between text-sm font-300;
+  @apply bg-white dark:bg-ebony-clay dark:border-ebony-clay rounded-[0.3125rem] h-[3rem] w-[12.5rem] pl-[1.5rem] pr-[1.19rem] flex items-center justify-between text-xs lg:text-sm font-300;
 }
 
 .box-shadow {
