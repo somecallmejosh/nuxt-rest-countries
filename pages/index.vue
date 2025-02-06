@@ -43,11 +43,11 @@ useSeoMeta({
 })
 </script>
 <template>
-  <div class="py-8 lg:py-12 space-y-6 lg:space-y-12">
-    <section aria-label="Search and filters" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+  <div class="py-8 lg:py-12 space-y-8 lg:space-y-12">
+    <section aria-label="Search and filters" class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-6 ">
       <div class="flex-1">
-        <div class="box-shadow w-full max-w-[30rem] h-[3rem] pl-[1.5rem] pr-[4rem] bg-white text-sm dark:bg-ebony-clay dark:text-white rounded-[0.3125rem] relative">
-          <input type="text" @keyup="filterResults" v-model="name" placeholder="Search for a country..." class="absolute inset-0 pr-2 pl-10 bg-[rgba(0,0,0,0)] box-shadow" />
+        <div class="box-shadow w-full max-w-[30rem] h-[3rem] pl-[1.5rem] pr-[4rem] bg-white dark:bg-ebony-clay dark:text-white rounded-[0.3125rem] relative">
+          <input type="text" @keyup="filterResults" v-model="name" placeholder="Search for a country..." class="absolute inset-0 pr-2 pl-10 bg-[rgba(0,0,0,0)] box-shadow text-xs lg:text-sm placeholder-[#848484] dark:placeholder-white" />
           <icons-search class="absolute size-4 left-3 top-1/2 -translate-y-1/2" />
         </div>
       </div>
