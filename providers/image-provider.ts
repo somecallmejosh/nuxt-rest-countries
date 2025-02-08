@@ -7,7 +7,7 @@ const operationsGenerator = createOperationsGenerator()
 
 export const getImage: ProviderGetImage = (
   src,
-  { modifiers = {}, baseURL } = {}
+  { modifiers = {}, baseURL } = {},
 ) => {
   if (!baseURL) {
     // also support runtime config

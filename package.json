@@ -20,7 +20,10 @@
     "@nuxtjs/seo": "2.1.0",
     "@nuxtjs/tailwindcss": "6.13.1",
     "@vueuse/components": "^12.5.0",
+    "eslint": "^9.20.0",
     "nuxt": "^3.15.3",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "ufo": "^1.5.4",
     "vue": "latest",
     "vue-router": "latest"
