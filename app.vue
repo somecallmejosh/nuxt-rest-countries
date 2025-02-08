@@ -1,7 +1,9 @@
 <template>
-  <div class="font-custom ">
+  <div class="font-custom">
     <NuxtRouteAnnouncer />
-    <div class="text-wood-smoke bg-alabaster dark:text-white dark:bg-mine-shaft min-h-dvh flex flex-col ">
+    <div
+      class="flex min-h-dvh flex-col bg-alabaster text-wood-smoke dark:bg-mine-shaft dark:text-white"
+    >
       <layout-app-header />
       <main class="wrapper flex-1">
         <NuxtPage />
@@ -10,7 +12,7 @@
   </div>
 </template>
 <style>
-  .wrapper {
-    @apply w-full max-w-[80rem] mx-auto px-4 xl:px-0;
-  }
+.wrapper {
+  @apply mx-auto w-full max-w-[80rem] px-4 xl:px-0;
+}
 </style>

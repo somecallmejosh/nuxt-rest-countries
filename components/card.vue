@@ -1,14 +1,14 @@
 <script setup>
-  const props = defineProps({
-    country: {
-      type: Object || String,
-      required: true,
-    },
-    index: {
-      type: Number,
-      default: 0,
-    },
-  })
+const props = defineProps({
+  country: {
+    type: Object || String,
+    required: true,
+  },
+  index: {
+    type: Number,
+    default: 0,
+  },
+})
 </script>
 <template>
   <li>
@@ -19,7 +19,7 @@
       :index="props.index"
     />
     <div class="card-text">
-      <h2 class="font-800 text-lg mb-4">{{ props.country.name.common }}</h2>
+      <h2 class="mb-4 text-lg font-800">{{ props.country.name.common }}</h2>
       <dl>
         <div>
           <dt>Population</dt>
@@ -32,9 +32,11 @@
         <div>
           <dt>Capital</dt>
           <dd>
-            {{ props.country.capital.length > 1
-              ? props.country.capital.join(', ')
-              : props.country.capital[0] }}
+            {{
+              props.country.capital.length > 1
+                ? props.country.capital.join(', ')
+                : props.country.capital[0]
+            }}
           </dd>
         </div>
       </dl>
@@ -46,11 +48,11 @@
 </template>
 <style scoped>
 li {
-  @apply relative bg-white dark:bg-ebony-clay rounded-[0.3125rem];
+  @apply relative rounded-[0.3125rem] bg-white dark:bg-ebony-clay;
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
 
   a {
-    @apply block absolute inset-0 z-10 rounded-[0.3125rem] overflow-hidden;
+    @apply absolute inset-0 z-10 block overflow-hidden rounded-[0.3125rem];
   }
 }
 .card-text {
@@ -58,14 +60,14 @@ li {
 }
 
 .card-text {
-  @apply pt-6 px-6 pb-[2.87rem];
+  @apply px-6 pb-[2.87rem] pt-6;
 }
 
 dl {
   @apply text-sm;
 
   div {
-    @apply  flex items-center gap-1;
+    @apply flex items-center gap-1;
   }
   dt {
     @apply font-600;

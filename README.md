@@ -13,7 +13,6 @@ View the live project: https://somecallmejosh-nuxt-countries.netlify.app/
 - **Static site generation** for improved performance
 - **Responsive design** for mobile and desktop
 
-
 ## Project Overview and Tasks
 
 https://github.com/users/somecallmejosh/projects/2/views/1
@@ -25,36 +24,46 @@ https://github.com/users/somecallmejosh/projects/2/views/1
 - **Netlify**: Hosting platform for deploying static sites
 - **REST Countries API**: Public API for fetching country data
 - **Nitro API routes** for fetching and filtering country data
+- **Prettier**: Code formatter for consistent code style
 
 ## Installation
 
 1. Clone the repository:
-  ```bash
-  git clone https://github.com/somecallmejosh/nuxt-rest-countries.git
-  ```
+
+```bash
+git clone https://github.com/somecallmejosh/nuxt-rest-countries.git
+```
+
 2. Navigate to the project directory:
-  ```bash
-  cd nuxt-rest-countries
-  ```
+
+```bash
+cd nuxt-rest-countries
+```
+
 3. Install dependencies:
-  ```bash
-  npm install
-  ```
+
+```bash
+npm install
+```
 
 ## Usage
 
 1. Start the development server:
-  ```bash
-  npm run dev
-  ```
+
+```bash
+npm run dev
+```
+
 2. Open your browser and visit `http://localhost:3000`
 
 ## Build for Production
 
 1. Generate the static files:
-  ```bash
-  npm run generate
-  ```
+
+```bash
+npm run generate
+```
+
 2. Deploy the `dist` directory to your preferred hosting service
 
 ## API
@@ -159,11 +168,13 @@ and extracts unique regions from the fetched data.
 **Example usage:**
 
 ```javascript
-import getRegions from '/api/regions';
+import getRegions from '/api/regions'
 
-getRegions().then(regions => {
-  console.log(regions); // Output: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania', ...]
-}).catch(error => {
-  console.error('Error fetching regions:', error);
-});
+getRegions()
+  .then((regions) => {
+    console.log(regions) // Output: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania', ...]
+  })
+  .catch((error) => {
+    console.error('Error fetching regions:', error)
+  })
 ```

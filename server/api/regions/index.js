@@ -10,11 +10,10 @@ export default defineEventHandler(async () => {
       }
       return acc
     }, [])
-  }
-  catch (error) {
+  } catch (error) {
     return {
       statusCode: error?.response?.status || 500,
-      message: error?.response?.statusText || 'Internal Server Error'
+      message: error?.response?.statusText || 'Internal Server Error',
     }
   }
   return regions

@@ -2,23 +2,37 @@
 const props = defineProps({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   clearSearch: {
     type: Function,
-    required: true
-  }
+    required: true,
+  },
 })
-
 </script>
 <template>
-  <div class="flex flex-col gap-2 lg:flex-row lg:items-center" role="alert" aria-live="polite">
-    <icons-oops class="size-28 lg:size-40 shrink-0"/>
+  <div
+    class="flex flex-col gap-2 lg:flex-row lg:items-center"
+    role="alert"
+    aria-live="polite"
+  >
+    <icons-oops class="size-28 shrink-0 lg:size-40" />
     <div>
-      <h1 class="font-800 text-3xl">Uhhh... Say What?</h1>
-      <p>Is like... <strong class="bg-black/10 p-1 italic dark:bg-white/10">{{ props.name }}</strong> actually a country and stuff?</p>
+      <h1 class="text-3xl font-800">Uhhh... Say What?</h1>
+      <p>
+        Is like...
+        <strong class="bg-black/10 p-1 italic dark:bg-white/10">{{
+          props.name
+        }}</strong>
+        actually a country and stuff?
+      </p>
       <p class="mb-2">Maybe give your search another go.</p>
-      <button @click="props.clearSearch" class="bg-black/10 font-600 dark:bg-black dark:border-ebony-clay rounded-[0.3125rem] px-2 py-1 box-shadow">Clear Search</button>
+      <button
+        @click="props.clearSearch"
+        class="box-shadow rounded-[0.3125rem] bg-black/10 px-2 py-1 font-600 dark:border-ebony-clay dark:bg-black"
+      >
+        Clear Search
+      </button>
     </div>
   </div>
 </template>
